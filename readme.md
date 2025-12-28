@@ -13,3 +13,13 @@ PtychoX is an open-source library that provides CUDA-accelerated, differentiable
 - MATLAB R2023b or later
 - MATLAB Deep Learning Toolbox
 - A CUDA-capable NVIDIA GPU
+
+## Testing
+The following experiments were conducted on an OMEN Transcend 14 gaming laptop equipped with an Intel® Core™ Ultra 9 185H processor (2.50 GHz), 32 GB RAM, and an NVIDIA® GeForce RTX™ 4060 Laptop GPU.
+<div align = 'center'>
+<img src = "https://github.com/THUHoloLab/PtychoX/blob/main/resources/compared.gif" width = "600" alt="" align = center />
+<br>
+<em>Comparison between PtychoX and conventional gpuArray based recovery on classical ptychography.</em>
+</div>
+<br>
+
