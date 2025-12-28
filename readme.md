@@ -15,7 +15,7 @@ PtychoX is an open-source library that provides CUDA-accelerated, differentiable
 - A CUDA-capable NVIDIA GPU
 
 ## Testing
-The following experiments were conducted on an OMEN Transcend 14 gaming laptop equipped with an Intel® Core™ Ultra 9 185H processor (2.50 GHz), 32 GB RAM, and an NVIDIA® GeForce RTX™ 4060 Laptop GPU.
+The following experiments were conducted on an OMEN Transcend 14 gaming laptop equipped with an Intel® Core™ Ultra 9 185H processor (2.50 GHz), 32 GB RAM, and an NVIDIA® GeForce RTX™ 4060 Laptop GPU. Raw image is of 256 by 256 pixels, and the reconstruction image is of 1024 by 1024 pixels.
 <div align = 'center'>
 <img src = "https://github.com/THUHoloLab/PtychoX/blob/main/resources/compared.gif" width = "600" alt="" align = center />
 <br>
