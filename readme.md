@@ -7,3 +7,9 @@ PtychoX is an open-source library that provides CUDA-accelerated, differentiable
 <em>Typical ptychographic imaging layouts</em>
 </div>
 <br>
+
+## Requirements
+- CUDA 12.8
+- MATLAB R2023b or later
+- MATLAB Deep Learning Toolbox
+- A CUDA-capable NVIDIA GPU
