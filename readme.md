@@ -2,7 +2,8 @@
 
   ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?logo=apache)
   ![NVIDIA GPU](https://img.shields.io/badge/gpu-nvidia-green?logo=nvidia)
-![CUDA 12.8](https://img.shields.io/badge/CUDA-12.8-green.svg?logo=nvidia&logoColor=white)
+  ![CUDA 12.8](https://img.shields.io/badge/CUDA-12.8-green.svg?logo=nvidia)
+  ![MATLAB](https://img.shields.io/badge/MATLAB-2024b-red.svg?logo=MATLAB)
   
 PtychoX is an open-source library that provides CUDA-accelerated, differentiable phase-retrieval solvers for the ptychographic imaging family, with native MATLAB bindings. The project is inspired by the Chinese paper “CUDA-Accelerated Fourier Ptychographic Microscopy (Invited)” [[1](https://researching.cn/ArticlePdf/m00002/2025/62/15/1511001.pdf)]. Building upon this foundation, PtychoX extends the original framework to **four distinct ptychographic applications**, each implemented with end-to-end differentiable formulations.
 
