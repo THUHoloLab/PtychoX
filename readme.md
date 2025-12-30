@@ -1,6 +1,6 @@
 # PtychoX: differentiable ptychography powered by CUDA!
 
-  [![License](https://img.shields.io/badge/License-Apache2.svg)](LICENSE/)
+  ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
   ![NVIDIA GPU](https://img.shields.io/badge/gpu-nvidia-green?logo=nvidia)
   ![CUDA 12.8](https://img.shields.io/badge/CUDA-12.8-green.svg)
   
