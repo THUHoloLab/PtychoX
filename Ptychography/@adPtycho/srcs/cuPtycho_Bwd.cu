@@ -1,3 +1,23 @@
+ /* =========================================================================
+ cuPthcho_Bwd.cu
+
+ Author: Shuhe Zhang
+ Affiliation: Tsinghua University
+ Email: shuhe-zhang@tsinghua.edu.cn
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ =========================================================================*/
+
 #include "addon/mex.h"
 #include "addon/mxGPUArray.h"
 #include "addon/addon.h"
@@ -5,6 +25,38 @@
 #include "cuda/kernels.cuh"
 #include "cuda/fftshift_kernel.cuh"
 
+/**
+ * mexFunction (MATLAB entry)
+ * --------------------------
+ * This MEX function runs the backward/gradient path for a ptychography-like
+ * pipeline on GPU:
+ *
+ * High-level flow (in this code):
+ * 1) Read inputs (all are gpuArray):
+ *    - dldout   : target magnitudes (or upstream gradient) in Fourier domain
+ *    - sample   : large object/sample W (complex)
+ *    - probe    : probe P (complex), patch-sized
+ *    - position : scan positions (int2), one per view
+ *    - latentW  : cached sample patch per view (complex), used for gradients
+ *    - latentZ  : complex field to be constrained and then inverse FFT'ed
+ *    - (prhs[6]) a cuFFT plan handle passed from MATLAB (uint64)
+ *
+ * 2) Allocate output gradients:
+ *    - dldw1 : gradient wrt sample (same size as sample)
+ *    - dldw2 : gradient wrt probe  (same size as probe)
+ *
+ * 3) Apply magnitude constraint + fftshift-like quadrant swap in Fourier domain:
+ *    fullyfused_ConsShift(dldout, latentZ)
+ *
+ * 4) Inverse FFT (C2C) on latentZ using the provided cuFFT plan handle
+ *
+ * 5) Accumulate gradients with atomicAdd:
+ *    reducedSum(dldw1, dldw2, probe, latentZ, latentW, position, ...)
+ *
+ * Outputs:
+ * - plhs[0] = dldw1 (gpuArray complex single)
+ * - plhs[1] = dldw2 (gpuArray complex single)
+ */
 void mexFunction(
     int nlhs, mxArray *plhs[], 
     int nrhs, mxArray const *  __restrict__ prhs[]
@@ -28,9 +80,22 @@ void mexFunction(
 
     mxGPUArray_t * latentZ = mxGPUCopyFromMxArray(prhs[4]);
 
+    // ------------------------------------------------------------
+    // 2) Dimensions
+    // ------------------------------------------------------------
+    // imLs_bc: low-size batch cube (Nx, Ny, nViews), inferred from dldout
+    // imHs_sz: high-size sample (Hx, Hy, 1 or ???), inferred from sample
     dim3 imLs_bc = size2dim3(dldout);   
     dim3 imHs_sz = size2dim3(sample);   
 
+    // ------------------------------------------------------------
+    // 3) Allocate output gradient buffers on GPU
+    // ------------------------------------------------------------
+    // dldw1: gradient w.r.t. sample (same size/type as sample)
+    // dldw2: gradient w.r.t. probe  (same size/type as probe)
+    //
+    // MX_GPU_INITIALIZE_VALUES ensures output is zero-initialized. This is critical
+    // because reducedSum uses atomicAdd accumulation.
     mxGPUArray_t * dldw1 = mxGPUCreateGPUArray(
         mxGPUGetNumberOfDimensions(sample), 
         mxGPUGetDimensions(sample),                   
