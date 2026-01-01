@@ -29,3 +29,7 @@ The following experiments were conducted on an OMEN Transcend 14 gaming laptop e
 </div>
 <br>
 
+## Example
+### Conventional ptychography
+The script `Examples/Ptychography/test_recon.m` provides a default example for training a ptychographic model based on the conventional Fourier-transform-based ptychography framework.  
+This script follows the same reconstruction logic as the classical ptychography implementation.
