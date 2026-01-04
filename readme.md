@@ -30,6 +30,7 @@ The following experiments were conducted on an OMEN Transcend 14 gaming laptop e
 <br>
 
 The following experiments were conducted on an desktop equipped with an Intel® Core™ i9-12900L 3.2GHz, 128 GB RAM, and an NVIDIA® GeForce RTX™ 3090. Raw image is of 512 by 512 pixels, a total of 900 raw images. The reconstruction image is of 2048 by 2048 pixels.
+The scripts are available in `Benchmarks/ptychography-testing-RTX3090/`
 <div align = 'center'>
 <img src = "https://github.com/THUHoloLab/PtychoX/blob/main/resources/compared2.gif" width = "600" alt="" align = center />
 <br>
