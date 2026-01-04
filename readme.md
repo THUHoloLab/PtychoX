@@ -29,6 +29,14 @@ The following experiments were conducted on an OMEN Transcend 14 gaming laptop e
 </div>
 <br>
 
+The following experiments were conducted on an desktop equipped with an Intel® Core™ i9-12900L 3.2GHz, 128 GB RAM, and an NVIDIA® GeForce RTX™ 3090. Raw image is of 512 by 512 pixels, a total of 900 raw images. The reconstruction image is of 2048 by 2048 pixels.
+<div align = 'center'>
+<img src = "https://github.com/THUHoloLab/PtychoX/blob/main/resources/compared2.gif" width = "600" alt="" align = center />
+<br>
+<em>Comparison between PtychoX and conventional gpuArray based recovery on classical ptychography.</em>
+</div>
+<br>
+
 ## Example
 ### Conventional ptychography
 The script `Examples/Ptychography/test_recon.m` provides a default example for training a ptychographic model based on the conventional Fourier-transform-based ptychography framework.  
