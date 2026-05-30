@@ -15,6 +15,8 @@ PtychoX is an open-source library that provides CUDA-accelerated, differentiable
 <em>Typical ptychographic imaging layouts</em>
 </div>
 <br>
+## Updates
+We provide python code for PtychoX
 
 ## Requirements
 - CUDA 12.8
