@@ -1,4 +1,4 @@
-# PyTorch ptychography example
+# PyTorch PtychoX example
 
 This directory contains a PyTorch port of the classical ptychography example in
 `matlab/Examples/Ptychography/test_recon.m`.
