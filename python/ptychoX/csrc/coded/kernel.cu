@@ -55,13 +55,9 @@ cufftHandle get_plan(int64_t batch, int64_t height, int64_t width) {
   cufft_check(
       cufftPlanMany(
           &plan,
-          2,
-          n,
-          nullptr,
-          1,
+          2, n, nullptr, 1,
           static_cast<int>(height * width),
-          nullptr,
-          1,
+          nullptr, 1,
           static_cast<int>(height * width),
           CUFFT_C2C,
           static_cast<int>(batch)),
