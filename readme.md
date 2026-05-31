@@ -17,7 +17,8 @@ PtychoX is an open-source library that provides CUDA-accelerated, differentiable
 <br>
 
 ## Updates
-We provide python codes for PtychoX
+We provide python codes for PtychoX<br>
+Related works were submitted to Journal of physics: Photonics
 
 ## Requirements
 - CUDA 12.8
