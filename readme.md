@@ -2,7 +2,7 @@
 
   ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?logo=apache)
   ![MATLAB](https://img.shields.io/badge/MATLAB-2024b-red.svg?logo=mathworks)
-  ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+  ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white)
   ![PyTorch](https://img.shields.io/badge/PyTorch-2.12.0-EE4C2C?logo=pytorch&logoColor=white)
   ![NVIDIA GPU](https://img.shields.io/badge/gpu-nvidia-green?logo=nvidia)
   ![CUDA 12.8](https://img.shields.io/badge/CUDA-12.8-green.svg?logo=nvidia)
