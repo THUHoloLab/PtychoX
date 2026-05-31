@@ -326,7 +326,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--samples", type=int, default=225)
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--batch-size", type=int, default=16)
-    parser.add_argument("--lr", type=float, default=0.02)
+    parser.add_argument("--lr", type=float, default=0.01)
     parser.add_argument("--pupil-lr", type=float, default=None)
     parser.add_argument("--min-lr", type=float, default=1e-4)
     parser.add_argument("--aberration-scale", type=float, default=0.8, help="Scale of synthetic Zernike pupil phase.")
