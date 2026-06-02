@@ -134,8 +134,8 @@ def _load_cuda_ext():
         module_name="ptychoX.fpm._C",
         build_name="ptychoX_fpm_C",
         sources=[
-            root / "csrc" / "fpm" / "extension.cpp",
-            root / "csrc" / "fpm" / "kernel.cu",
+            root / "csrc" / "fpm_extension.cpp",
+            root / "csrc" / "fpm_kernel.cu",
         ],
     )
     return _CUDA_EXT

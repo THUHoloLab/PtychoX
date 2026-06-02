@@ -117,8 +117,8 @@ def _load_cuda_ext():
         module_name="ptychoX.base._C",
         build_name="ptychoX_base_C",
         sources=[
-            root / "csrc" / "base" / "extension.cpp",
-            root / "csrc" / "base" / "kernel.cu",
+            root / "csrc" / "base_extension.cpp",
+            root / "csrc" / "base_kernel.cu",
         ],
     )
     return _CUDA_EXT
